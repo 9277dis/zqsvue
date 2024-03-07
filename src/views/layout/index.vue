@@ -1,5 +1,4 @@
 <script>
-import navbar from "@/views/navbar/index.vue";
 
 export default {
   name: "index"
@@ -7,8 +6,10 @@ export default {
 </script>
 
 <template>
-  <navbar/>
-  <router-view/>
+<div>
+  注销页面
+  <router-link to="login">去登录</router-link>
+</div>
 </template>
 
 <style scoped>
