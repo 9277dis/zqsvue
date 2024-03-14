@@ -40,7 +40,7 @@ export default {
 
 .container {
   background: url(http://api.0cs.cc) no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   width: 100vw;
   height: 100vh;
   display: flex;
