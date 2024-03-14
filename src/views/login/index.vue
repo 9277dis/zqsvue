@@ -17,10 +17,10 @@ export default {
           <label for="">密码</label>
           <input type="password" name="" id="" placeholder="请输入密码">
         </div>
-        <div class="form-control">
-          <input type="submit" value="登录">
-          <span>没有账号？
-          <router-link to="/regist"/>去注册
+        <div class="form-control text-center">
+          <button type="button" class="btn btn-primary" >登录</button>
+          <span class="text-muted ml6">没有账号？
+            <router-link to="/regist">去注册</router-link>
           </span>
         </div>
       </form>
@@ -30,7 +30,6 @@ export default {
 <style scoped>
 
 .container {
-  //background-color: #f1f1f1;
   background: url(http://api.0cs.cc) no-repeat;
   background-size: cover;
   width: 100vw;
@@ -45,6 +44,9 @@ export default {
   width: 33%;
   background-color: rgba(148, 145, 145, 0.68);
   border-radius: 10px;
-  padding: 15px;
+  padding: 20px;
+}
+.ml6{
+  margin-left: 6px;
 }
 </style>
