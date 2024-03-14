@@ -5,6 +5,8 @@ export default {
 </script>
 
 <template>
+  <div>prodetail...</div>
+
 
 </template>
 

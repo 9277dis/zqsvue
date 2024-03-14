@@ -1,6 +1,11 @@
 <script>
 export default {
-  name: "index"
+  name: "index",
+  methods: {
+    doLogin() {
+      this.$router.push("/index")
+    }
+  }
 }
 </script>
 
@@ -18,7 +23,7 @@ export default {
           <input type="password" name="" id="" placeholder="请输入密码">
         </div>
         <div class="form-control text-center">
-          <button type="button" class="btn btn-primary" >登录</button>
+          <button type="button" class="btn btn-primary" @click="doLogin">登录</button>
           <span class="text-muted ml6">没有账号？
             <router-link to="/regist">去注册</router-link>
           </span>
@@ -46,7 +51,8 @@ export default {
   border-radius: 10px;
   padding: 20px;
 }
-.ml6{
+
+.ml6 {
   margin-left: 6px;
 }
 </style>

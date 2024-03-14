@@ -5,7 +5,9 @@ export default {
 </script>
 
 <template>
-
+  <div>
+    proitem...
+  </div>
 </template>
 
 <style scoped>

@@ -5,6 +5,7 @@ export default {
 </script>
 
 <template>
+  <div>cart...</div>
 
 </template>
 

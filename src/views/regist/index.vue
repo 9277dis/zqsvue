@@ -1,6 +1,11 @@
 <script>
 export default {
-  name: "index"
+  name: "index",
+  methods: {
+    doRegist() {
+      this.$router.push("/")
+    }
+  }
 }
 </script>
 
@@ -22,9 +27,9 @@ export default {
           <input type="password" name="" id="" placeholder="重复密码">
         </div>
         <div class="form-control text-center">
-          <button type="button" class="btn btn-primary">注册</button>
+          <button type="button" class="btn btn-primary" @click="doRegist">注册</button>
           <span class="text-muted ml6">已有账号？
-            <router-link to="/login">登录</router-link>
+            <router-link to="/">登录</router-link>
           </span>
         </div>
       </form>

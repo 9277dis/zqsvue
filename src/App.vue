@@ -28,7 +28,6 @@
 .form-control {
   margin: 10px 0;
   font-size: 18px;
-  font-size: 18px;
 }
 
 .form-control label {
@@ -40,8 +39,9 @@
   width: calc(100% - 90px);
   height: 30px;
   border: none;
-  background-color: #ffffffd0;
+  background-color: #fff;
   padding-left: 4px;
+  border-radius: 5px;
 }
 
 .btn {
@@ -49,6 +49,7 @@
   border: none;
   padding: 6px 30px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .btn-primary {
@@ -57,7 +58,8 @@
 }
 
 .btn-primary:hover {
-  background-color: blue;
+  background-color: #5e5ef6;
+  color: black;
 }
 
 a {

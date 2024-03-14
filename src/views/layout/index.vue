@@ -1,15 +1,19 @@
 <script>
 
+import navbar from '@/views/navbar'
+
 export default {
-  name: "index"
+  components:{ navbar }
+
 }
 </script>
 
 <template>
-<div>
-  注销页面
-  <router-link to="login">去登录</router-link>
-</div>
+  <div>
+    layout...
+    <navbar />
+    <router-view />
+  </div>
 </template>
 
 <style scoped>
