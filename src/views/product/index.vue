@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="text-center">
     pro...
     <router-link to="/detail">pro1</router-link>
   </div>

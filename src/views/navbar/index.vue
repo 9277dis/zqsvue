@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="text-center">
     navbar...
     <router-link to="/">首页</router-link>
     <router-link to="/cart">购物车</router-link>

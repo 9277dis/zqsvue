@@ -12,20 +12,20 @@ export default {
 <template>
   <div class="container">
     <div class="login-container">
-      <h2 class="text-center">用户登录</h2>
+      <h2 class="">用户登录</h2>
       <form action="#">
         <div class="form-control">
-          <label for="">用户名</label>
+<!--          <label for="">用户名</label>-->
           <input type="text" name="" id="" placeholder="请输入用户名">
         </div>
         <div class="form-control">
-          <label for="">密码</label>
+<!--          <label for="">密码</label>-->
           <input type="password" name="" id="" placeholder="请输入密码">
         </div>
         <div class="form-control text-center">
-          <button type="button" class="btn btn-primary" @click="doLogin">登录</button>
+          <button type="button" class="btn btn-primary" @click="doLogin">立即登录</button>
           <span class="text-muted ml6">没有账号？
-            <router-link to="/regist">去注册</router-link>
+            <router-link to="/regist">前往注册</router-link>
           </span>
         </div>
       </form>
@@ -33,26 +33,40 @@ export default {
   </div>
 </template>
 <style scoped>
-
 .container {
-  background: url(http://api.0cs.cc) no-repeat;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh;
+  position: relative;
+  width: 400px;
+  //min-height: 400px;
+  background: #000;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
 }
 
 .login-container {
-  width: 33%;
-  background-color: rgba(148, 145, 145, 0.68);
-  border-radius: 10px;
-  padding: 20px;
+  //width: 33%;
+  //background-color: rgba(255, 255, 255, 0.1);
+  //border-radius: 10px;
+  //padding: 20px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
 }
 
 .ml6 {
-  margin-left: 6px;
+  //margin-left: 6px;
+  float: right;
+  margin-top: 5px;
+  color: #000;
+  padding: 2px;
 }
 </style>

@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div>order...</div>
+  <div class="text-center">order...</div>
 
 </template>
 

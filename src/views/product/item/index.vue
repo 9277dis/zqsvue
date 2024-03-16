@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="text-center">
     proitem...
   </div>
 </template>

@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div>cart...</div>
+  <div class="text-center">cart...</div>
 
 </template>
 

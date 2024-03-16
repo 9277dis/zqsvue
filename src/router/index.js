@@ -7,6 +7,7 @@ const routes = [
     {
         path: "/",
         name: "Login",
+        title:"登录",
         component: () => import("@/views/login/") // 确保路径和文件名正确
     },
     {

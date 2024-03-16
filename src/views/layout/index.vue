@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="text-center">
     layout...
     <navbar />
     <router-view />
