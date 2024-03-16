@@ -20,13 +20,14 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background: url(@/assets/1C2FAF011DD74BE573D2CFF657B1401F.png) no-repeat;
   background-size: cover;
-  //background: url(http://api.0cs.cc) no-repeat;
-  background: linear-gradient(to bottom, #4fecff, #1e69fa) center;
+  //background: linear-gradient(to bottom, #4fecff, #1e69fa) center;
 }
 
 :root {
-  --primary-color: #007bff;
+  --primary-color: #1e69fa;
+  --primary-hover-color: #fff;
 }
 
 .text-center {
@@ -36,10 +37,10 @@ body {
 .container h2 {
   position: relative;
   padding: 0;
-  //color: #fff;
-  color: #000;
+  color: #fff;
+  //color: #000;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 1px;
   margin: 0 0 40px;
 }
@@ -49,10 +50,10 @@ body {
   position: absolute;
   left: 0;
   bottom: -10px;
-  width: 80px;
+  width: 100px;
   height: 4px;
-  //background: #fff;
-  background-color: black;
+  background: #fff;
+  //background-color: black;
 }
 
 .text-muted {
@@ -88,7 +89,10 @@ body {
   outline: none;
   font-size: 16px;
   letter-spacing: 1px;
-  color: black;
+  color: #fff;
+}
+input::placeholder{
+  color: #fff;
 }
 
 .btn {
@@ -113,7 +117,7 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #1e64cd;
 }
 
 a {
@@ -125,6 +129,7 @@ a:visited {
 }
 
 a:hover {
+  //color: var(--primary-color);
   color: var(--primary-color);
 }
 </style>

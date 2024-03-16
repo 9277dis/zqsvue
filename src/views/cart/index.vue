@@ -5,8 +5,9 @@ export default {
 </script>
 
 <template>
-  <div class="text-center">cart...</div>
-
+  <div>cart...
+    <router-link to="/">CDC的</router-link>
+  </div>
 </template>
 
 <style scoped>

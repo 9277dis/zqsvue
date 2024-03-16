@@ -16,15 +16,15 @@ export default {
       <form action="#">
         <div class="form-control">
           <!--          <label for="">用户名</label>-->
-          <input type="text" name="" id="" placeholder="请输入用户名">
+          <input type="text" name="" id="" placeholder="请输入用户名" required>
         </div>
         <div class="form-control">
           <!--          <label for="">密码</label>-->
-          <input type="password" name="" id="" placeholder="请输入密码">
+          <input type="password" name="" id="" placeholder="请输入密码" required>
         </div>
         <div class="form-control">
           <!--          <label for="">重复密码</label>-->
-          <input type="password" name="" id="" placeholder="重复密码">
+          <input type="password" name="" id="" placeholder="请重复密码" required>
         </div>
         <div class="form-control text-center">
           <button type="button" class="btn btn-primary" @click="doRegist">立即注册</button>
@@ -41,7 +41,7 @@ export default {
 
 .container {
   position: relative;
-  width: 400px;
+  width: 350px;
   //min-height: 400px;
   background: #000;
   border-radius: 10px;
@@ -64,7 +64,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 40px;
+  padding: 30px;
   box-sizing: border-box;
 }
 

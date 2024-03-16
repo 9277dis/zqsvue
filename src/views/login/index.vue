@@ -16,11 +16,11 @@ export default {
       <form action="#">
         <div class="form-control">
 <!--          <label for="">用户名</label>-->
-          <input type="text" name="" id="" placeholder="请输入用户名">
+          <input type="text" name="" id="" placeholder="请输入用户名" required>
         </div>
         <div class="form-control">
 <!--          <label for="">密码</label>-->
-          <input type="password" name="" id="" placeholder="请输入密码">
+          <input type="password" name="" id="" placeholder="请输入密码" required>
         </div>
         <div class="form-control text-center">
           <button type="button" class="btn btn-primary" @click="doLogin">立即登录</button>
@@ -34,8 +34,9 @@ export default {
 </template>
 <style scoped>
 .container {
+  margin-top: 80px;
   position: relative;
-  width: 400px;
+  width: 350px;
   //min-height: 400px;
   background: #000;
   border-radius: 10px;

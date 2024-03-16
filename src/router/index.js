@@ -8,37 +8,37 @@ const routes = [
         path: "/",
         name: "Login",
         title:"登录",
-        component: () => import("@/views/login/") // 确保路径和文件名正确
+        component: () => import("@/views/login/")
     },
     {
         path: "/regist",
         name: "Regist",
-        component: () => import("@/views/regist/") // 确保路径和文件名正确
+        component: () => import("@/views/regist/")
     },
     {
         path: "/index",
         name: "Layout",
-        component: () => import("@/views/layout/"), // 确保路径和文件名正确
+        component: () => import("@/views/layout/"),
         children: [
             {
-                path: "product", // 子路由路径不以 / 开头
+                path: "product",
                 name: "Product",
-                component: () => import("@/views/product/") // 确保路径和文件名正确
+                component: () => import("@/views/product/")
             },
             {
-                path: "detail", // 子路由路径不以 / 开头
+                path: "detail",
                 name: "Detail",
-                component: () => import("@/views/product/detail/") // 确保路径和文件名正确
+                component: () => import("@/views/product/detail/")
             },
             {
-                path: "order", // 子路由路径不以 / 开头
+                path: "order",
                 name: "Order",
-                component: () => import("@/views/order/") // 确保路径和文件名正确
+                component: () => import("@/views/order/")
             },
             {
-                path: "cart", // 子路由路径不以 / 开头
+                path: "cart",
                 name: "Cart",
-                component: () => import("@/views/cart/") // 确保路径和文件名正确
+                component: () => import("@/views/cart/")
             },
         ]
     },
