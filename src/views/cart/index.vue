@@ -6,7 +6,7 @@ export default {
 
 <template>
   <div>cart...
-    <router-link to="/">CDC的</router-link>
+    <router-link to="/">退出</router-link>
   </div>
 </template>
 

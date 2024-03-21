@@ -102,11 +102,11 @@ export default {
 .btn{
   border: 1px solid white;
 }
-.btn:nth-child(1){
+.btn-warning{
   border: 1px solid black;
 }
 .btn:hover{
-  background-color: var(--from-color);
+  background-color: var(--primary-color);
   color: white;
   border: 1px solid black;
 }
