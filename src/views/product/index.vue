@@ -1,6 +1,6 @@
 <script>
 
-import item from "@/views/product/item/index.vue";
+import item from "@/views/product/item";
 
 export default {
   name: "index",

@@ -1,11 +1,11 @@
 <script>
 export default {
-  name: "order"
+  name: "index"
 }
 </script>
 
 <template>
-  <div class="text-center">order...</div>
+<!--  <div class="text-center">order...</div>-->
 
 </template>
 

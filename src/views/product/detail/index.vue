@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "detail"
+  name: "index"
 }
 </script>
 
@@ -30,7 +30,7 @@ export default {
       <div class="mt20">
         <button class="btn btn-primary">加入购物车</button>
         <router-link to="/index">
-          <button class="btn btn-warning ml6"></button>
+          <button class="btn btn-warning ml6">返回上一页</button>
         </router-link>
       </div>
     </div>
@@ -57,7 +57,7 @@ export default {
 }
 
 .active {
-  border: 4px solid var(--primary-color);
+  border: 4px solid black;
 }
 
 .small {

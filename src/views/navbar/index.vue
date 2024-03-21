@@ -1,23 +1,23 @@
 <script>
 export default {
-  name: "navbar"
+  name: "index"
 }
 </script>
 
 <template>
   <div class="container">
     <div class="logo">在线商城</div>
-        <div class="nav-links">
-          <router-link to="/index">首页</router-link>
-          <router-link to="/cart">购物车</router-link>
-          <router-link to="/order">订单</router-link>
-          <router-link to="/">退出</router-link>
-        </div>
+    <div class="nav-links">
+      <router-link to="/index">首页</router-link>
+      <router-link to="/cart">购物车</router-link>
+      <router-link to="/order">订单</router-link>
+      <router-link to="/">退出</router-link>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.container{
+.container {
   max-width: 100%;
   width: 100vw;
   height: 40px;
@@ -28,21 +28,24 @@ export default {
   padding: 0 20px;
   line-height: 40px;
 }
-.logo{
+
+.logo {
   font-size: 20px;
 }
 
-.nav-links{
+.nav-links {
   display: flex;
   font-size: 20px;
   color: #333;
   text-align: center;
   text-decoration: none;
 }
-.nav-links a{
+
+.nav-links a {
   margin: 0 10px;
 }
-.nav-links a:hover{
+
+.nav-links a:hover {
   color: var(--primary-color);
 }
 

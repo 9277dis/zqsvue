@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "item"
+  name: "index"
 }
 </script>
 
@@ -35,7 +35,6 @@ export default {
   padding: 10px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.8);
-
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 10px #ccc;

@@ -7,7 +7,7 @@ const routes = [
     {
         path: "/",
         name: "Login",
-        title:"登录",
+        title: "登录",
         component: () => import("@/views/login/")
     },
     {
@@ -36,7 +36,7 @@ const routes = [
                 component: () => import("@/views/order/")
             },
             {
-                path: "cart",
+                path: "/cart",
                 name: "Cart",
                 component: () => import("@/views/cart/")
             },

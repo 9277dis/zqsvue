@@ -24,8 +24,9 @@
 body {
   display: flex;
   width: 100vw;
-  height: 100vh;
-  //height: 100%;
+  //height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   //background: url(@/assets/1615.jpg) no-repeat;
   //background: url(http://api.0cs.cc) no-repeat;
   background-size: 100% 100%;
