@@ -5,9 +5,9 @@ export default {
 </script>
 
 <template>
-<!--  <div>cart...-->
-<!--    <router-link to="/">CDC的</router-link>-->
-<!--  </div>-->
+  <div>cart...
+    <router-link to="/">CDC的</router-link>
+  </div>
 </template>
 
 <style scoped>

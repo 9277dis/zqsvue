@@ -79,7 +79,7 @@ export default {
 }
 .container{
   width: 80%;
-  margin: 60px auto 0;
+  margin: 40px auto 0;
 }
 .img-container{
   display: inline-block;
@@ -98,5 +98,16 @@ export default {
 }
 .big img{
   width: 100%;
+}
+.btn{
+  border: 1px solid white;
+}
+.btn:nth-child(1){
+  border: 1px solid black;
+}
+.btn:hover{
+  background-color: var(--from-color);
+  color: white;
+  border: 1px solid black;
 }
 </style>
