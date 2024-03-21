@@ -1,6 +1,9 @@
 <script>
+import navbar from '@/views/navbar'
+
 export default {
   name: "index",
+  components: {navbar},
   methods: {
     doRegist() {
       this.$router.push("/")
@@ -15,15 +18,15 @@ export default {
       <h2 class="">用户注册</h2>
       <form action="#">
         <div class="form-control">
-          <!--          <label for="">用户名</label>-->
+<!--                    <label for="">用户名</label>-->
           <input type="text" name="" id="" placeholder="请输入用户名" required>
         </div>
         <div class="form-control">
-          <!--          <label for="">密码</label>-->
+<!--                    <label for="">密码</label>-->
           <input type="password" name="" id="" placeholder="请输入密码" required>
         </div>
         <div class="form-control">
-          <!--          <label for="">重复密码</label>-->
+<!--                    <label for="">重复密码</label>-->
           <input type="password" name="" id="" placeholder="请重复密码" required>
         </div>
         <div class="form-control text-center">
@@ -38,33 +41,29 @@ export default {
 </template>
 <style scoped>
 
-
 .container {
-  position: relative;
-  width: 350px;
-  //min-height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 350px;
   background: #000;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
   display: flex;
-  justify-content: center;
-  align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
 }
 
+
 .login-container {
-  //width: 33%;
-  //background-color: rgba(148, 145, 145, 0.68);
-  //border-radius: 10px;
-  //padding: 20px;
   position: relative;
   width: 100%;
-  height: 100%;
-  padding: 30px;
+  padding: 40px;
   box-sizing: border-box;
 }
 

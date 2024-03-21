@@ -26,12 +26,12 @@ const routes = [
                 component: () => import("@/views/product/")
             },
             {
-                path: "detail",
+                path: "/detail",
                 name: "Detail",
                 component: () => import("@/views/product/detail/")
             },
             {
-                path: "order",
+                path: "/order",
                 name: "Order",
                 component: () => import("@/views/order/")
             },

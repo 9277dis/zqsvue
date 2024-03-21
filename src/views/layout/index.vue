@@ -1,18 +1,19 @@
 <script>
 
 import navbar from '@/views/navbar'
+import product from "@/views/product";
 
 export default {
-  components:{ navbar }
-
+  components: {navbar, product}
 }
 </script>
 
 <template>
-  <div class="text-center">
-    layout...
-    <navbar />
-    <router-view />
+  <div>
+    <navbar/>
+    <router-view/>
+    <product/>
+    <router-view/>
   </div>
 </template>
 

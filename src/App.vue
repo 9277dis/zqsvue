@@ -12,23 +12,26 @@
   font-size: 16px;
   font-family: 'Courier New', Courier, monospace;
   box-sizing: border-box;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background: url(@/assets/1C2FAF011DD74BE573D2CFF657B1401F.png) no-repeat;
-  background-size: cover;
-  //background: linear-gradient(to bottom, #4fecff, #1e69fa) center;
+  text-decoration: none;
 }
 
 :root {
   --primary-color: #1e69fa;
-  --primary-hover-color: #fff;
+  --from-color: #4fecff;
+  --end-color: #1e69fa;
 }
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  //height: 100%;
+  //background: url(@/assets/1615.jpg) no-repeat;
+  //background: url(http://api.0cs.cc) no-repeat;
+  background-size: 100% 100%;
+  background: linear-gradient(to bottom, var(--from-color), var(--end-color)) center no-repeat;
+}
+
 
 .text-center {
   text-align: center;
@@ -38,7 +41,6 @@ body {
   position: relative;
   padding: 0;
   color: #fff;
-  //color: #000;
   font-size: 24px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -91,7 +93,8 @@ body {
   letter-spacing: 1px;
   color: #fff;
 }
-input::placeholder{
+
+input::placeholder {
   color: #fff;
 }
 
