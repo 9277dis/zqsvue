@@ -8,14 +8,14 @@ export default {
   <div class="container">
     <div class="img-container">
       <div class="big">
-        <img src="@/assets/logo.png" alt="">
+        <img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt="">
       </div>
       <div class="small">
-        <div><img src="@/assets/logo.png" alt=""></div>
-        <div class="active"><img src="@/assets/logo.png" alt=""></div>
-        <div><img src="@/assets/logo.png" alt=""></div>
-        <div><img src="@/assets/logo.png" alt=""></div>
-        <div><img src="@/assets/logo.png" alt=""></div>
+        <div><img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt=""></div>
+        <div class="active"><img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt=""></div>
+        <div><img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt=""></div>
+        <div><img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt=""></div>
+        <div><img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt=""></div>
       </div>
     </div>
     <div class="info-container">
@@ -24,8 +24,8 @@ export default {
       <div class="price">
         ¥<span class="price-num">6653.00</span>
       </div>
-      <div>
-        <img src="@/assets/logo.png" alt="">
+      <div class="bimg">
+        <img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt="">
       </div>
       <div class="mt20">
         <button class="btn btn-primary">加入购物车</button>
@@ -43,7 +43,9 @@ export default {
 }
 
 .mt20 {
+  width: 300px;
   margin-top: 20px;
+  margin-left: 20px;
 }
 
 .price {
@@ -55,7 +57,11 @@ export default {
 .price-num {
   font-size: 1.8rem;
 }
-
+.bimg img{
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+}
 .active {
   border: 4px solid black;
 }
@@ -97,7 +103,9 @@ export default {
   margin-top: 0;
 }
 .big img{
-  width: 100%;
+  width: 80%;
+  border-radius: 10px;
+  border: 1px solid white;
 }
 .btn{
   border: 1px solid white;

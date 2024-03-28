@@ -136,6 +136,17 @@ a:hover {
   //color: var(--primary-color);
   color: var(--primary-color);
 }
+.btn-danger{
+  background-color: #ff6b6b;
+  color: #fff;
+}
+.btn-danger:hover{
+  background-color: #ff0000;
+}
+.btn-danger:active{
+  background-color: #ff0000;
+  box-shadow: none;
+}
 </style>
 <script>
 
