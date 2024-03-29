@@ -3,9 +3,56 @@
 export default {
   name: "index",
   methods: {
-    doLogin() {
-      this.$router.push("/index")
+    doLogin(uname, upwd) {
+      uname = this.uname;
+      upwd = this.upwd;
+      // 判断用户名和密码是否为空
+      if (uname == '' || upwd == '') {
+        console.log("用户名或密码不能为空");
+        alert("用户名或密码不能为空");
+        return false;
+      }
+      console.log("uname", uname, "upwd", upwd)
+      // 判断用户名和密码是否匹配
+      const user = this.users.find(user => user.uname === uname && user.upwd === upwd);
+      if (user) {
+        // 登录成功，可以跳转到其他页面或显示成功信息
+        console.log('登录成功', user);
+      } else {
+        alert('用户名或密码错误')
+        return false
+      }
+
+      // 登录成功后跳转到首页
+      this.$router.push('/index');
     }
+  },
+  data() {
+    return {
+      users: [{
+        uname: 'root',
+        upwd: '123456'
+      }, {
+        uname: 'guest',
+        upwd: '123456'
+      }, {
+        uname: 'admin1',
+        upwd: '123456'
+      }, {
+        uname: 'admin2',
+        upwd: '123456'
+      }, {
+        uname: 'admin',
+        upwd: '123456'
+      }, {
+        uname: 'user',
+        upwd: '123456'
+      }
+      ],
+      uname: '',
+      upwd: ''
+    }
+
   }
 }
 </script>
@@ -17,11 +64,11 @@ export default {
       <form action="#">
         <div class="form-control">
           <!--          <label for="">用户名</label>-->
-          <input type="text" name="" id="" placeholder="请输入用户名" required>
+          <input type="text" v-model="uname" placeholder="请输入用户名" required>
         </div>
         <div class="form-control">
           <!--          <label for="">密码</label>-->
-          <input type="password" name="" id="" placeholder="请输入密码" required>
+          <input type="password" v-model="upwd" placeholder="请输入密码" required>
         </div>
         <div class="form-control text-center">
           <button type="button" class="btn btn-primary" @click="doLogin">立即登录</button>
