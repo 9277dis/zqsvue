@@ -7,7 +7,7 @@ export default {
       uname = this.uname;
       upwd = this.upwd;
       // 判断用户名和密码是否为空
-      if (uname == '' || upwd == '') {
+      if (uname === '' || upwd === '') {
         console.log("用户名或密码不能为空");
         alert("用户名或密码不能为空");
         return false;
