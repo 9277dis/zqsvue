@@ -1,6 +1,13 @@
 <script>
 export default {
-  name: "index"
+  name: "index",
+  methods: {
+    goToCart(){
+      this.$router.push('/cart')
+    }
+  },created() {
+    document.title = '商品详情'
+  }
 }
 </script>
 
@@ -28,7 +35,7 @@ export default {
         <img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt="">
       </div>
       <div class="mt20">
-        <button class="btn btn-primary">加入购物车</button>
+        <button class="btn btn-primary" @click="goToCart">加入购物车</button>
         <router-link to="/index">
           <button class="btn btn-warning ml6">返回上一页</button>
         </router-link>
@@ -53,7 +60,9 @@ export default {
   color: var(--primary-color);
   font-weight: bold;
 }
-
+:root{
+  --img:"https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640";
+}
 .price-num {
   font-size: 1.8rem;
 }

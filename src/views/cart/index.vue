@@ -16,6 +16,7 @@ export default {
     }
   }, created() {
     this.creat(10)
+    document.title = '购物车'
   }, methods: {
     creat(x) {
       // 创建x个随机订单
@@ -104,9 +105,11 @@ export default {
 
 <template>
   <div class="cart-container">
-    <div @click="creat(10)" style="cursor: pointer;user-select: none">我的购物车</div>
-    <div class="clear">
-      <button class="btn btn-danger" @click="clean">清空购物车</button>
+    <div class="cart-header">
+      <div class="my-cart" @click="creat(10)" style="cursor: pointer;user-select: none">我的购物车</div>
+      <div class="clear">
+        <button class="btn btn-danger" @click="clean">清空购物车</button>
+      </div>
     </div>
 
     <div>
@@ -155,6 +158,16 @@ export default {
 
 
 <style scoped>
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.my-cart {
+  width: 300px;
+  margin: auto;
+}
+
 .cart-container {
   margin: 20px auto;
   width: 80%;
@@ -199,8 +212,9 @@ td, th {
 
 td:first-child, th:first-child {
   width: 8%;
-  min-width:60px
+  min-width: 60px
 }
+
 td:nth-child(2), th:nth-child(2) {
   width: 8%;
   min-width: 60px;

@@ -6,8 +6,10 @@ export default {
   components: {navbar},
   methods: {
     doRegist() {
-      this.$router.push("/")
+      this.$router.push("/")// 注册成功后跳转到首页
     }
+  },created() {
+    document.title = '用户注册'// 修改网页标题
   }
 }
 </script>

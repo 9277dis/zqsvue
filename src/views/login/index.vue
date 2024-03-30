@@ -22,10 +22,18 @@ export default {
         alert('用户名或密码错误')
         return false
       }
-
       // 登录成功后跳转到首页
       this.$router.push('/index');
     }
+  },
+  created() {
+    // 页面加载时执行的代码
+    console.log("页面加载时执行的代码");
+    console.log("this", this);
+    console.log("this.$router", this.$router);
+    console.log("this.$route", this.$route);
+    console.log("this.$store", this.$store);
+    document.title = '用户登录'
   },
   data() {
     return {

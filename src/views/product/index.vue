@@ -9,6 +9,9 @@ export default {
     toDetail() {
       this.$router.push('/detail')
     }
+  },
+  created() {
+    document.title = '首页'
   }
 }
 </script>

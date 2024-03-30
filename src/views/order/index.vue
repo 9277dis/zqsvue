@@ -37,6 +37,7 @@ export default {
     }
   }, created() {
     this.creat(10)
+    document.title = '订单列表'
   },
   methods: {
     creat(x) {
@@ -51,6 +52,9 @@ export default {
           status: Math.floor(Math.random() * 3) + 1
         })
       }
+    },
+    back() {
+      this.$router.go(-1)
     }
   }
 }
@@ -90,7 +94,7 @@ export default {
         <label for="selectAll">全选</label>
       </div>
       <div class="submit-area">
-        <button class="btn btn-primary">返回</button>
+        <button class="btn btn-primary" @click="back">返回</button>
       </div>
     </div>
   </div>
