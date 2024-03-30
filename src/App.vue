@@ -74,14 +74,7 @@ body {
 }
 
 .form-control input {
-  //width: calc(100% - 90px);
-  //height: 30px;
-  //border: none;
-  //background-color: #fff;
-  //padding-left: 4px;
-  //border-radius: 5px;
   width: 100%;
-  //background: transparent;
   border: none;
   padding: 10px 20px;
   border-radius: 35px;
@@ -100,16 +93,9 @@ input::placeholder {
 }
 
 .btn {
-  //background: none;
-  //border: none;
-  //padding: 6px 30px;
-  //cursor: pointer;
-  //border-radius: 5px;
   padding: 10px 20px;
   border: none;
   border-radius: 24px;
-  //background-color: var(--primary-color);
-  //color: #fff;
   cursor: pointer;
   font-size: 16px;
   margin: 0 auto;
@@ -133,7 +119,6 @@ a:visited {
 }
 
 a:hover {
-  //color: var(--primary-color);
   color: var(--primary-color);
 }
 .btn-danger{
