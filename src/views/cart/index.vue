@@ -15,7 +15,7 @@ export default {
       totalPrice: 0.00//选中的商品总价
     }
   }, created() {
-    this.creat(10)
+    this.creat(15)
     document.title = '购物车'
   }, methods: {
     creat(x) {
@@ -30,9 +30,7 @@ export default {
         var price = Math.floor(Math.random() * 100) + 1
         // 随机数量，如1,2,3,4,5
         var count = Math.floor(Math.random() * 10) + 1
-
         price = price.toFixed(2)
-
         this.carts.push({id: id, name: name, price: price, count: count})
       }
     },
@@ -143,7 +141,9 @@ export default {
     </div>
     <div class="footer">
       <div class="all-check">
-        <input type="checkbox" v-model="checkAll" @change="checkAllChange"/>{{ checkAll ? '取消全选' : '全选' }}
+        <input type="checkbox" v-model="checkAll" id="selectAll" @change="checkAllChange"/>
+        <label for="selectAll">{{ checkAll ? '取消全选' : '全选' }}</label>
+
       </div>
       <div class="summary">
         <span>已选商品<span class="count">{{ selectedCount }}</span>件</span>&nbsp;
@@ -169,8 +169,17 @@ export default {
 }
 
 .cart-container {
-  margin: 20px auto;
-  width: 80%;
+  position: absolute;
+  margin-top: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  height: 100%;
+  overflow-x: unset;
+  overflow-y: unset;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .footer {

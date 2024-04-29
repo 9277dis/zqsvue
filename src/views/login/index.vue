@@ -1,29 +1,30 @@
 <script>
+import userApi from "@/api/UserApi";
 
 export default {
   name: "index",
+  data() {
+    return {
+      user: {
+        loginName: '',
+        password: '',
+      }
+    }
+  },
   methods: {
-    doLogin(uname, upwd) {
-      uname = this.uname;
-      upwd = this.upwd;
-      // 判断用户名和密码是否为空
-      if (uname === '' || upwd === '') {
-        console.log("用户名或密码不能为空");
-        alert("用户名或密码不能为空");
-        return false;
-      }
-      console.log("uname", uname, "upwd", upwd)
-      // 判断用户名和密码是否匹配
-      const user = this.users.find(user => user.uname === uname && user.upwd === upwd);
-      if (user) {
-        // 登录成功，可以跳转到其他页面或显示成功信息
-        console.log('登录成功', user);
-      } else {
-        alert('用户名或密码错误')
-        return false
-      }
-      // 登录成功后跳转到首页
-      this.$router.push('/index');
+    doLogin() {
+      userApi.login(this.user).then(res => {
+        let r = res.data;
+        if (!r.success) {
+          alert(r.message)
+        } else {
+          // 登录成功后，将用户信息存储到localStorage中
+          // localStorage.setItem("user", JSON.stringify(users.id))
+          this.$store.dispatch("setLoginUserId", r.data)
+          let redirectURL = this.$route.query.redirectURL || '/index';
+          this.$router.push(redirectURL);
+        }
+      })
     }
   },
   created() {
@@ -34,34 +35,11 @@ export default {
     console.log("this.$route", this.$route);
     console.log("this.$store", this.$store);
     document.title = '用户登录'
+    //   在页面加载时，从localStorage中获取用户信息，如果已登录，则跳转到下一页
+    // if (!!localStorage.getItem('user')) {
+    //   this.$router.push('/index')
+    // }
   },
-  data() {
-    return {
-      users: [{
-        uname: 'root',
-        upwd: '123456'
-      }, {
-        uname: 'guest',
-        upwd: '123456'
-      }, {
-        uname: 'admin1',
-        upwd: '123456'
-      }, {
-        uname: 'admin2',
-        upwd: '123456'
-      }, {
-        uname: 'admin',
-        upwd: '123456'
-      }, {
-        uname: 'user',
-        upwd: '123456'
-      }
-      ],
-      uname: '',
-      upwd: ''
-    }
-
-  }
 }
 </script>
 
@@ -72,11 +50,11 @@ export default {
       <form action="#">
         <div class="form-control">
           <!--          <label for="">用户名</label>-->
-          <input type="text" v-model="uname" placeholder="请输入用户名" required>
+          <input type="text" v-model="user.loginName" placeholder="请输入用户名" required>
         </div>
         <div class="form-control">
           <!--          <label for="">密码</label>-->
-          <input type="password" v-model="upwd" placeholder="请输入密码" required>
+          <input type="password" v-model="user.password" placeholder="请输入密码" required>
         </div>
         <div class="form-control text-center">
           <button type="button" class="btn btn-primary" @click="doLogin">立即登录</button>

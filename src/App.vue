@@ -27,7 +27,8 @@ body {
   //height: 100vh;
   height: 100%;
   min-height: 100vh;
-  background: url(@/assets/1615.jpg) no-repeat;
+  overflow: scroll;
+  background: url(@/assets/1615.jpg) no-repeat center center fixed;
   //background: url(http://api.0cs.cc) no-repeat;
   background-size: 100% 100%;
   //background: linear-gradient(to bottom, var(--from-color), var(--end-color)) center no-repeat;
@@ -56,7 +57,6 @@ body {
   width: 100px;
   height: 4px;
   background: #fff;
-  //background-color: black;
 }
 
 .text-muted {

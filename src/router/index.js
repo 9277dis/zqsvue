@@ -49,5 +49,18 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes
 })
+import store from "@/store";
 
+router.beforeEach((to, from, next) => {
+
+    if (to.path === '/' || to.path === '/regist') {
+        next()
+        return;
+    }
+    if (!store.getters.loginUserId) {
+        next("/?redirect=" + to.path)
+        return;
+    }
+    next()
+})
 export default router

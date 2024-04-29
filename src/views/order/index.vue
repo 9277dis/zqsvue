@@ -1,31 +1,11 @@
 <script>
+import orderApi from '@/api/orderApi'
+
 export default {
   name: "index",
   data() {
     return {
-      orders: [
-        {
-          id: 1,
-          name: "订单1",
-          total: 100,
-          createdAt: "2022-01-01",
-          status: "1"
-        },
-        {
-          id: 2,
-          name: "订单2",
-          total: 200,
-          createdAt: "2022-01-02",
-          status: "2"
-        },
-        {
-          id: 3,
-          name: "订单3",
-          total: 300,
-          createdAt: "2022-01-03",
-          status: "3"
-        }
-      ]
+      orders: []
     }
   },
   filters: {
@@ -35,14 +15,26 @@ export default {
     caozhuoFilter(status) {
       return ["删除订单", "申请退款", "确认收货"][status - 1]
     }
-  }, created() {
-    this.creat(10)
+  },
+  mounted() {
+    const userId2 = localStorage.getItem("user")
+    let userId = this.$store.getters.loginUserId;
+    console.log(userId2)
+    orderApi.myOrder(userId).then(res => this.orders = res.data.data)
+  },
+  created() {
     document.title = '订单列表'
   },
   methods: {
+    checkOneChange() {
+      this.checkAll = this.ifAllSelected();
+    },
+    checkAllChange() {
+      if (this.checkAll) {
+      }
+    },
     creat(x) {
       this.orders = []
-      //   创建随机x个订单
       for (let i = 0; i < x; i++) {
         this.orders.push({
           id: Math.floor(Math.random() * 10000),
@@ -52,6 +44,9 @@ export default {
           status: Math.floor(Math.random() * 3) + 1
         })
       }
+    },
+    ifAllSelected() {
+
     },
     back() {
       this.$router.go(-1)
@@ -76,7 +71,7 @@ export default {
         </tr>
 
         <tr v-for="order in orders" :key="order.id">
-          <td><input type="checkbox"/></td>
+          <td><input @click="checkOneChange" type="checkbox"/></td>
           <td>{{ order.id }}</td>
           <td>{{ order.name }}</td>
           <td>{{ order.total }}</td>
@@ -90,7 +85,7 @@ export default {
     </div>
     <div class="footer">
       <div class="select-area">
-        <input type="checkbox" id="selectAll"/>
+        <input type="checkbox" id="selectAll" @click="checkAllChange"/>
         <label for="selectAll">全选</label>
       </div>
       <div class="submit-area">
@@ -102,8 +97,13 @@ export default {
 
 <style scoped>
 .cart-container {
-  margin: 20px auto;
+  position: absolute;
+  margin-top: 50px;
   width: 80%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .footer {
@@ -140,12 +140,13 @@ table, th, td {
 }
 
 td, th {
-  width:15%;
+  width: 15%;
   padding: 10px;
   text-align: center;
   border: 1px solid #e9e9e9;
 }
-td:first-child , th:first-child {
+
+td:first-child, th:first-child {
   width: 10%;
 }
 

@@ -1,11 +1,23 @@
 <script>
+import productApi from "@/api/productApi";
+
 export default {
   name: "index",
+  data() {
+    return {
+      product: {}
+    }
+  },
+  mounted() {
+    let id = this.$route.query.id;
+    productApi.detail(id)
+        .then(res => this.product = res.data.data)
+  },
   methods: {
-    goToCart(){
+    goToCart() {
       this.$router.push('/cart')
     }
-  },created() {
+  }, created() {
     document.title = '商品详情'
   }
 }
@@ -26,10 +38,9 @@ export default {
       </div>
     </div>
     <div class="info-container">
-      <h3>Apple/苹果iPhone15(A3092)
-        256GB黑色支持移动联通电信5G双卡双待手机</h3>
+      <h3 v-text="product.name"></h3>
       <div class="price">
-        ¥<span class="price-num">6653.00</span>
+        ¥<span class="price-num" v-text="product.price"></span>
       </div>
       <div class="bimg">
         <img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt="">
@@ -60,17 +71,21 @@ export default {
   color: var(--primary-color);
   font-weight: bold;
 }
-:root{
-  --img:"https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640";
+
+:root {
+  --img: "https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640";
 }
+
 .price-num {
   font-size: 1.8rem;
 }
-.bimg img{
+
+.bimg img {
   width: 300px;
   height: 300px;
   border-radius: 10px;
 }
+
 .active {
   border: 4px solid black;
 }
@@ -92,37 +107,46 @@ export default {
   height: 100%;
   cursor: pointer;
 }
-.container{
+
+.container {
   width: 80%;
   margin: 40px auto 0;
+  padding-top: 50px;
 }
-.img-container{
+
+.img-container {
   display: inline-block;
   width: 33%;
   height: 200px;
 }
-.info-container{
+
+.info-container {
   display: inline-block;
   width: 60%;
   height: 200px;
   vertical-align: top;
   padding-left: 45px;
 }
-.info-container h3{
+
+.info-container h3 {
   margin-top: 0;
 }
-.big img{
+
+.big img {
   width: 80%;
   border-radius: 10px;
   border: 1px solid white;
 }
-.btn{
+
+.btn {
   border: 1px solid white;
 }
-.btn-warning{
+
+.btn-warning {
   border: 1px solid black;
 }
-.btn:hover{
+
+.btn:hover {
   background-color: var(--primary-color);
   color: white;
   border: 1px solid black;
