@@ -15,8 +15,11 @@ export default {
   },
   methods: {
     goToCart() {
-      this.$router.push('/cart')
-    }
+      // this.$router.push('/cart')
+      this.$store.dispatch('addToCart', this.product)
+    },
+    // addToCart() {
+    // }
   }, created() {
     document.title = '商品详情'
   }

@@ -3,19 +3,18 @@ export default {
   name: "index",
   data() {
     return {
-      carts: [
-        {id: 1, name: '商品1', price: 10.95, count: 1},
-        {id: 2, name: '商品2', price: 20.48, count: 2},
-        {id: 3, name: '商品3', price: 30.18, count: 3}
-      ],
+      carts: [],
       selectedItems: [],// 选中的商品全部信息，id，name，price，count等
       checkedNames: false,//选择状态
       checkAll: false,//全选状态
       selectedCount: 0,//选中的商品数量
       totalPrice: 0.00//选中的商品总价
     }
-  }, created() {
-    this.creat(15)
+  }, mounted() {
+    this.carts = this.$store.getters.carts
+  },
+  created() {
+    // this.creat(15)
     document.title = '购物车'
   }, methods: {
     creat(x) {
@@ -45,10 +44,11 @@ export default {
     },
     sum() {
       // 计算总数
-      this.selectedCount = 0
-      for (var i = 0; i < this.selectedItems.length; i++) {
-        this.selectedCount += this.selectedItems[i].count
-      }
+      this.selectedCount=this.selectedItems.length;
+      // this.selectedCount = 0
+      // for (var i = 0; i < this.selectedItems.length; i++) {
+      //   this.selectedCount += this.selectedItems[i].count
+      // }
       // 计算总价
       this.totalPrice = 0.00
       for (var j = 0; j < this.selectedItems.length; j++) {
@@ -56,6 +56,9 @@ export default {
       }
       //   保留两位小数
       this.totalPrice = this.totalPrice.toFixed(2)
+    },
+    readyToPay(){
+    //   结算
     },
     checkOneChange() {
       // 检查所有复选框的状态
@@ -150,7 +153,7 @@ export default {
         <span>总价：<span class="total">{{ totalPrice }}</span>元</span>
       </div>
       <div class="submit-area">
-        <button class="btn btn-primary" @click="sum">结算</button>
+        <button class="btn btn-primary" @click="readyToPay">结算</button>
       </div>
     </div>
   </div>

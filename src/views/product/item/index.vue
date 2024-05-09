@@ -11,7 +11,7 @@ export default {
       }
     },
     AddToCart() {
-
+      this.$store.dispatch('addToCart', this.product)
     }
   },
   props: {
