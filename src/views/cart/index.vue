@@ -14,27 +14,11 @@ export default {
     this.carts = this.$store.getters.carts
   },
   created() {
-    // this.creat(15)
     document.title = '购物车'
   }, methods: {
-    creat(x) {
-      // 创建x个随机订单
-      this.clean()// 清除之前的数据
-
-      // 创建订单商品
-      for (var i = 0; i < x; i++) {
-        var id = i + 1
-        var name = '商品' + id
-        // 随机小数价格，如6.66
-        var price = Math.floor(Math.random() * 100) + 1
-        // 随机数量，如1,2,3,4,5
-        var count = Math.floor(Math.random() * 10) + 1
-        price = price.toFixed(2)
-        this.carts.push({id: id, name: name, price: price, count: count})
-      }
-    },
-    clean() {
-      this.carts = []
+    clean(state) {
+      this.$store.dispatch("clearCart");
+      this.carts = this.$store.getters.carts;
       this.selectedItems = []
       this.checkedNames = false
       this.checkAll = false
@@ -42,23 +26,24 @@ export default {
       this.totalPrice = 0.00
       this.sum()
     },
+    updateNUm(id,num){
+      this.$store.dispatch("updateCartProductNum",{id,num});
+      this.carts=this.$store.getters.carts;
+      this.checkOneChange()
+    },
     sum() {
       // 计算总数
-      this.selectedCount=this.selectedItems.length;
-      // this.selectedCount = 0
-      // for (var i = 0; i < this.selectedItems.length; i++) {
-      //   this.selectedCount += this.selectedItems[i].count
-      // }
+      this.selectedCount = this.selectedItems.length;
       // 计算总价
       this.totalPrice = 0.00
-      for (var j = 0; j < this.selectedItems.length; j++) {
+      for (let j = 0; j < this.selectedItems.length; j++) {
         this.totalPrice += this.selectedItems[j].price * this.selectedItems[j].count
       }
       //   保留两位小数
       this.totalPrice = this.totalPrice.toFixed(2)
     },
-    readyToPay(){
-    //   结算
+    readyToPay() {
+      //   结算
     },
     checkOneChange() {
       // 检查所有复选框的状态
@@ -91,14 +76,18 @@ export default {
     plus(cart) {
       // 增加商品数量
       cart.count++
+      let num=cart.count--
+      this.updateNUm(cart.id,num)
       this.sum()
     },
     minus(cart) {
       // 减少商品数量
-      if (cart.count > 1) {
+      // if (cart.count > 1) {
         cart.count--
+       let num=cart.count--
+        this.updateNUm(cart.id,num)
         this.sum()
-      }
+      // }
     },
   }
 }
@@ -132,7 +121,7 @@ export default {
           <td>{{ cart.name }}</td>
           <td>{{ cart.price }}</td>
           <td>
-            <span class="cut" @click="minus(cart)" :class="{ disabled: cart.count === 1 }">-</span>
+            <span class="cut" @click="minus(cart)" :class="{ disabled: cart.count === 0 }">-</span>
             <span class="num">{{ cart.count }}</span>
             <span class="plus" @click="plus(cart)" :class="{ disabled: cart.count === 100 }">+</span>
           </td>

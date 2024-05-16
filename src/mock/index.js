@@ -90,7 +90,7 @@ let products = [{
     {
         "id": 7,
         "name": "佳能R50 18-45mm 微单相机套机高清数码青春专微旅游人像",
-        "price": "¥8999",
+        "price": "8999",
         "picLastIndex": 4
     },
     {
@@ -150,13 +150,13 @@ let products = [{
     {
         "id": 18,
         "name": "良品铺子芒果干108g水果干果脯年货节零食网红零食休闲小吃食品 1件装",
-        "price": "¥11.9",
+        "price": "11.9",
         "picLastIndex": 4
     },
     {
         "id": 19,
         "name": "倍思w04蓝牙耳机真...",
-        "price": "¥158",
+        "price": "158",
         "picLastIndex": 0
     },
     {
@@ -222,7 +222,7 @@ let products = [{
     {
         "id": 30,
         "name": "伊丽莎白墨釉黑高弹衬衫男春秋休闲款长袖定制弹力商务桑蚕丝衬衣",
-        "price": "¥990",
+        "price": "990",
         "picLastIndex": 5
     },
     {
