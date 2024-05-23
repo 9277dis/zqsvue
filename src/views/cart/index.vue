@@ -1,4 +1,6 @@
 <script>
+import orderApi from "@/api/orderApi";
+
 export default {
   name: "index",
   data() {
@@ -16,7 +18,7 @@ export default {
   created() {
     document.title = '购物车'
   }, methods: {
-    clean(state) {
+    clean() {
       this.$store.dispatch("clearCart");
       this.carts = this.$store.getters.carts;
       this.selectedItems = []
@@ -26,9 +28,9 @@ export default {
       this.totalPrice = 0.00
       this.sum()
     },
-    updateNUm(id,num){
-      this.$store.dispatch("updateCartProductNum",{id,num});
-      this.carts=this.$store.getters.carts;
+    updateNUm(id, num) {
+      this.$store.dispatch("updateCartProductNum", {id, num});
+      this.carts = this.$store.getters.carts;
       this.checkOneChange()
     },
     sum() {
@@ -43,8 +45,18 @@ export default {
       this.totalPrice = this.totalPrice.toFixed(2)
     },
     readyToPay() {
-      //   结算
+      let order = {
+        userId: this.$store.getters.loginUserId,
+        products: this.selectedItems,
+      }
+      orderApi.submitOrder(order)
+          .then(resp => {
+            alert(resp.data.message);
+            this.$store.dispatch("removeCart", this.selectedItems);
+            this.carts = this.$store.getters.carts;
+          })
     },
+
     checkOneChange() {
       // 检查所有复选框的状态
       this.checkAll = this.ifAllSelected();
@@ -76,18 +88,16 @@ export default {
     plus(cart) {
       // 增加商品数量
       cart.count++
-      let num=cart.count--
-      this.updateNUm(cart.id,num)
+      let num = cart.count--
+      this.updateNUm(cart.id, num)
       this.sum()
     },
     minus(cart) {
       // 减少商品数量
-      // if (cart.count > 1) {
-        cart.count--
-       let num=cart.count--
-        this.updateNUm(cart.id,num)
-        this.sum()
-      // }
+      cart.count--
+      let num = cart.count--
+      this.updateNUm(cart.id, num)
+      this.sum()
     },
   }
 }

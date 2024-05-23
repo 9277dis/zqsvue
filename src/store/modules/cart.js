@@ -23,13 +23,9 @@ const cart = {
             // 清空购物车
             state.carts = [];
         },
-        removeCart(state, item) {
-            // 移除购物车中的商品
-            state.carts.forEach((cart, index) => {
-                if (cart.id == item.id) {
-                    state.carts.splice(index, 1);
-                }
-            });
+        removeCart(state, itemsToRemove) {
+            // 移除购物车中的多个商品
+            state.carts = state.carts.filter(item => !itemsToRemove.some(toRemove => toRemove.id === item.id));
         },
         updateNum(state, {id, num}) {
             // 更新购物车中的商品数量
@@ -51,10 +47,9 @@ const cart = {
             context.commit('addCart', item)
         }
         ,
-        removeFromCart(context, item) {
-
-        }
-        ,
+        removeCart(context, item) {
+            context.commit('removeCart', item)
+        },
         clearCart(context) {
             context.commit('clearCart')
         }

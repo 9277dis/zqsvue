@@ -50,17 +50,19 @@ const router = new VueRouter({
     routes
 })
 import store from "@/store";
-
 router.beforeEach((to, from, next) => {
+    console.log(to.path)
+    const shouldProceed = () => {
+        if (to.path === '/index' && from.path === '/') {
+            return true;
+        }
+        return to.path === '/' || to.path === '/regist' || store.getters.loginUserId;
+    };
 
-    if (to.path === '/' || to.path === '/regist') {
-        next()
-        return;
+    if (shouldProceed()) {
+        next();
+    } else {
+        next(`/?redirect=${encodeURIComponent(to.fullPath)}`);
     }
-    if (!store.getters.loginUserId) {
-        next("/?redirect=" + to.path)
-        return;
-    }
-    next()
-})
+});
 export default router

@@ -87,6 +87,19 @@ export default {
   color: #333;
   margin-bottom: 10px;
   font-weight: bold;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-align: left;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-all;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 

@@ -10,16 +10,18 @@ export default {
   },
   mounted() {
     let id = this.$route.query.id;
+    console.log(this.$route.query.id)
     productApi.detail(id)
         .then(res => this.product = res.data.data)
   },
   methods: {
     goToCart() {
-      // this.$router.push('/cart')
       this.$store.dispatch('addToCart', this.product)
     },
-    // addToCart() {
-    // }
+    getProductImagePatn(id, idx)
+      {
+        return require(`@/assets/products/${id}/${idx}.avif`)
+      }
   }, created() {
     document.title = '商品详情'
   }
@@ -30,14 +32,12 @@ export default {
   <div class="container">
     <div class="img-container">
       <div class="big">
-        <img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt="">
+        <img :src="getProductImagePatn($route.query.id,0)" alt="">
       </div>
       <div class="small">
-        <div><img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt=""></div>
-        <div class="active"><img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt=""></div>
-        <div><img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt=""></div>
-        <div><img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt=""></div>
-        <div><img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt=""></div>
+        <div v-for="idx in product.picLastIndex" :key="idx">
+          <img :src="getProductImagePatn($route.query.id,idx-1)" alt="">
+        </div>
       </div>
     </div>
     <div class="info-container">
@@ -46,7 +46,7 @@ export default {
         ¥<span class="price-num" v-text="product.price"></span>
       </div>
       <div class="bimg">
-        <img src="https://q1.qlogo.cn/g?b=qq&nk=239277023&s=640" alt="">
+        <img src="@/assets/spgg.png" alt="">
       </div>
       <div class="mt20">
         <button class="btn btn-primary" @click="goToCart">加入购物车</button>
