@@ -106,7 +106,7 @@ export default {
 <template>
   <div class="cart-container">
     <div class="cart-header">
-      <div class="my-cart" @click="creat(10)" style="cursor: pointer;user-select: none">我的购物车</div>
+      <div class="my-cart" style="cursor: pointer;user-select: none">我的购物车</div>
       <div class="clear">
         <button class="btn btn-danger" @click="clean">清空购物车</button>
       </div>
@@ -214,21 +214,21 @@ table, th, td {
 }
 
 td, th {
-  width: 20%;
+  width: 45%;
   min-width: 105px;
   padding: 10px;
   text-align: center;
   border: 1px solid #e9e9e9;
 }
 
-td:first-child, th:first-child {
-  width: 8%;
-  min-width: 60px
-}
 
-td:nth-child(2), th:nth-child(2) {
-  width: 8%;
-  min-width: 60px;
+td:first-child, th:first-child,
+td:nth-child(2), th:nth-child(2),
+td:nth-child(4), th:nth-child(4),
+td:nth-child(5), th:nth-child(5),
+td:nth-child(6), th:nth-child(6) {
+  width: 2%;
+  max-width: 55px;
 }
 
 .clear {

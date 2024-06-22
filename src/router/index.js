@@ -53,9 +53,9 @@ import store from "@/store";
 router.beforeEach((to, from, next) => {
     console.log(to.path)
     const shouldProceed = () => {
-        if (to.path === '/index' && from.path === '/') {
-            return true;
-        }
+        // if (to.path === '/index' && from.path === '/') {
+        //     return true;
+        // }
         return to.path === '/' || to.path === '/regist' || store.getters.loginUserId;
     };
 

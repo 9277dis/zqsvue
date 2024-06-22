@@ -17,9 +17,7 @@ export default {
     }
   },
   mounted() {
-    const userId2 = localStorage.getItem("user")
     let userId = this.$store.getters.loginUserId;
-    console.log(userId2)
     orderApi.myOrder(userId).then(res => this.orders = res.data.data)
   },
   created() {
@@ -29,27 +27,18 @@ export default {
     checkOneChange() {
       this.checkAll = this.ifAllSelected();
     },
-    checkAllChange() {
-      if (this.checkAll) {
-      }
-    },
-    creat(x) {
-      this.orders = []
-      for (let i = 0; i < x; i++) {
-        this.orders.push({
-          id: Math.floor(Math.random() * 10000),
-          name: "订单" + Math.floor(Math.random() * 10000),
-          total: Math.floor(Math.random() * 1000),
-          createdAt: new Date().toLocaleString(),
-          status: Math.floor(Math.random() * 3) + 1
-        })
-      }
-    },
-    ifAllSelected() {
-
-    },
     back() {
       this.$router.go(-1)
+    },
+    action(orderId, status) {
+      if (status == 1) {
+        orderApi.deleteOrder(orderId).then(
+            res => {
+              alert(res.data.message)
+              location.reload()
+            }
+        )
+      }
     }
   }
 }
@@ -74,20 +63,16 @@ export default {
           <td><input @click="checkOneChange" type="checkbox"/></td>
           <td>{{ order.id }}</td>
           <td>{{ order.name }}</td>
-          <td>{{ order.total }}</td>
-          <td>{{ order.createdAt }}</td>
+          <td>{{ order.totalPrice }}</td>
+          <td>{{ order.createTime }}</td>
           <td>{{ order.status|statusFilter }}</td>
           <td>
-            <button class="caozuo">{{ order.status|caozhuoFilter }}</button>
+            <button class="caozuo" @click="action(order.id,order.status)">{{ order.status|caozhuoFilter }}</button>
           </td>
         </tr>
       </table>
     </div>
     <div class="footer">
-      <div class="select-area">
-        <input type="checkbox" id="selectAll" @click="checkAllChange"/>
-        <label for="selectAll">全选</label>
-      </div>
       <div class="submit-area">
         <button class="btn btn-primary" @click="back">返回</button>
       </div>
@@ -140,14 +125,32 @@ table, th, td {
 }
 
 td, th {
-  width: 15%;
+  width: 40%;
+  max-width: 105px;
   padding: 10px;
   text-align: center;
   border: 1px solid #e9e9e9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+
+  &:hover {
+    overflow: visible;
+    white-space: normal;
+    word-break: break-all;
+  }
 }
 
-td:first-child, th:first-child {
+
+td:first-child, th:first-child,
+td:nth-child(2), th:nth-child(2),
+td:nth-child(4), th:nth-child(4),
+td:nth-child(5), th:nth-child(5),
+td:nth-child(6), th:nth-child(6),
+td:nth-child(7), th:nth-child(7) {
   width: 10%;
+  max-width: 55px;
 }
 
 .btn {

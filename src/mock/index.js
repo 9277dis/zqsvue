@@ -56,7 +56,8 @@ Mock.mock(new RegExp('http://localhost:8080/shop/user'), 'get', config => {
     }
     return error("用户名或密码错误", 40004)
 })
-let products = [{
+let products = [
+    {
     'id': 1,
     'name': '雅诗兰黛520限定小棕瓶精华眼霜15ml护肤品化妆品礼盒520情人节礼物送女友',
     'price': '565.00',
